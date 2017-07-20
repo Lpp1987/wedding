@@ -1,0 +1,43 @@
+{% load static %}
+
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% trans 'Kamisiaki się pobierają!' %}</title>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+
+<div class="container">
+    <div class="main-menu">
+        {% block menu %}
+            {% include 'menu.html' %}
+        {% endblock %}
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+
+</body>
+    <footer class="container-fluid">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-center">
+            <p>{% trans 'Czemu Kamisiaki się pobierają? To dość długa historia...' %}</p>
+        </div>
+        <div class="col-md-3"></div>
+    </footer>
+</div>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static "css/master.css" %}">
+
+</html>

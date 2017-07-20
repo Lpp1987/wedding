@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="text-center">
+    <h2>{% trans 'Zarejestruj się:' %}</h2>
+</div>
+<div class="col-md-3"></div>
+<div class="form-group col-md-6">
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <p>
+            {{ field.label_tag }}
+            <br />
+            {{ field|append_attr:"class:form-control" }}
+            {% if field.help_text %}
+                {% if field.name != 'password2' %}
+                    <small style="color: grey">
+                        {{ field.help_text }}
+                    </small>
+                {% endif %}
+            {% endif %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+            </p>
+        {% endfor %}
+        <button class="btn btn-default"type="submit">{% trans 'Rejestracja' %}</button>
+    </form>
+</div>
+<div class="col-md-3"></div>
+
+{% endblock %}

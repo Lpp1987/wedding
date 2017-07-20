@@ -1,0 +1,17 @@
+{% load i18n %}
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'home' %}">{% trans 'Start' %}</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/#tenders/">Przetargi</a></li>
+            <li><p>{% trans 'Zalogowany jako:' %} {{ user.username }}</p></li>
+            <li><a href="{% url 'logout' %}">{% trans 'Wyloguj' %}</a></li>
+        </ul>
+            {% else %}
+            <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span>{% trans 'Zaloguj' %}</a></li>
+        </ul>
+            {% endif %}
+    </div>
+</nav>

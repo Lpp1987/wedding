@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="home-invite">
+    <div class="col-md-12 text-center">
+        <h1>
+            {% trans 'Baw się razem z nami!' %}
+        </h1>
+    </div>
+
+    <div class="col-md-12 text-center">
+        <h4>
+            {% trans 'Jak już pewnie wiesz, wesele odbędzie się 09.09.2017r w miejscowości, która znajduje się niebezpiecznie blisko Wygwizdowa...' %}
+        </h4>
+        <h4>
+            <small>
+            {% trans 'Szczegóły dotyczące lokalizacji oraz inne dane znajdziesz w środku.' %}
+            </small>
+        </h4>
+        <a href="{% url 'register' %}" class="btn btn-primary">
+            {% trans 'Dołącz do nas!' %}
+        </a>
+    </div>
+</div>
+
+{% endblock %}
